@@ -1,0 +1,265 @@
+/* Global Styles */
+:root {
+    --primary-color: #ff4d6d;
+    --secondary-color: #ffaebc;
+    --background-start: #ffdde1;
+    --background-end: #ee9ca7;
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --text-color: #590d22;
+    --font-main: 'Outfit', sans-serif;
+    --font-script: 'Dancing Script', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background: linear-gradient(135deg, var(--background-start), var(--background-end));
+    min-height: 100vh;
+    color: var(--text-color);
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+/* Background Animation */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    /* We can add SVG hearts or particles here later if needed */
+}
+
+/* Layout */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.glass-panel:hover {
+    transform: translateY(-5px);
+}
+
+/* Typography */
+h1.title {
+    font-family: var(--font-script);
+    font-size: 3.5rem;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.highlight {
+    color: #c9184a;
+}
+
+h2 {
+    font-family: var(--font-script);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Letter Section */
+.letter-container {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    font-style: italic;
+    line-height: 1.8;
+    position: relative;
+    border-left: 5px solid var(--primary-color);
+}
+
+/* Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.photo-card {
+    aspect-ratio: 1;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo-card:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 100%;
+    background: #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+}
+
+/* Calendar Section */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.day-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.day-card:not(.locked):hover {
+    background: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 77, 109, 0.2);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-content i {
+    width: 48px;
+    height: 48px;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.day-card span {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.day-card .date {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    font-weight: normal;
+}
+
+/* Locked State */
+.day-card.locked {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: rgba(200, 200, 200, 0.4);
+}
+
+.lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.day-card.locked .lock-overlay {
+    opacity: 1;
+}
+
+.lock-overlay i {
+    color: #555;
+    width: 32px;
+    height: 32px;
+}
+
+/* Valentine Special */
+.valentine-special {
+    margin-top: 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.big-card {
+    width: 100%;
+    max-width: 300px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    border: 2px solid #fff;
+}
+
+.big-card:not(.locked):hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 77, 109, 0.6);
+}
+
+.countdown-container h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.countdown-timer {
+    font-family: monospace;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1.title { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    .container { padding: 1rem; }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day! 💖</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Dancing+Script:wght@600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Special styles for Valentine's Day */
+        .valentines-hero {
+            text-align: center;
+        }
+
+        .heart-beat {
+            animation: beat 1s infinite alternate;
+            color: #d90429;
+            font-size: 4rem;
+            margin: 1rem 0;
+        }
+
+        @keyframes beat {
+            to {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-animation"></div>
+
+    <main class="container">
+        <a href="index.html" class="back-link">
+            <i data-lucide="arrow-left"></i> Back to Calendar
+        </a>
+
+        <section class="glass-panel day-content valentines-hero">
+            <h1 class="title">Happy Valentine's Day, Adonia!</h1>
+            <div class="heart-beat">❤️</div>
+            <p class="subtitle">You are my forever valentine.</p>
+
+            <div class="content-placeholder">
+                <div class="placeholder-img large" style="height: 400px;">
+                    [Insert Best Couple Picture Here]
+                </div>
+                <div class="letter-container">
+                    <p class="letter-text">
+                        "My Dearest Adonia,<br><br>
+                        Today is all about celebrating love, but for me, loving you is a daily celebration.
+                        You bring so much light, joy, and warmth into my life.
+                        Thank you for being you, and thank you for choosing me.<br><br>
+                        I love you more than words can express.<br><br>
+                        Forever yours,<br>
+                        [Your Name]"
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
